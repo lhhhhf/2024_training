@@ -1,8 +1,8 @@
-package org.example.service;
+package org.example.service.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboService;
-import org.example.CpuService;
+import org.example.service.CpuService;
 
 /**
  * @author liuhaifeng

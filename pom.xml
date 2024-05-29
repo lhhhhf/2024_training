@@ -16,88 +16,60 @@
 
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.cloud.version>2021.0.5</spring.cloud.version>
-        <spring.boot.version>2.6.13</spring.boot.version>
-        <junit.version>4.12</junit.version>
-        <log4j.version>1.2.17</log4j.version>
-        <lombok.version>1.18.22</lombok.version>
-        <mysql-connector-java.version>8.0.22</mysql-connector-java.version>
-        <mybatis.plus.version>3.4.3.4</mybatis.plus.version>
-        <spring.cloud.nacos.version>2021.0.4.0</spring.cloud.nacos.version><!--2.2.6.RELEASE-->
-        <spring.cloud.dubbo.version>3.1.2</spring.cloud.dubbo.version>
-        <nacos.version>2.1.1</nacos.version>
+        <netty.version>4.1.56.Final</netty.version>
+        <spring-boot.version>2.6.13</spring-boot.version>
+        <dubbo.version>3.1.2</dubbo.version>
+        <lombok.version>1.18.30</lombok.version>
+        <nacos-client.version>2.1.0</nacos-client.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-            <!--spring-cloud依赖-->
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring.cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-
-            <!--spring-boot依赖-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring.boot.version}</version>
+                <version>${spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
-            <!--集成Nacos实现服务注册与发现-->
             <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-                <version>${spring.cloud.nacos.version}</version>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-dependencies-bom</artifactId>
+                <version>${dubbo.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
-
-            <!--集成Nacos实现动态配置管理-->
-            <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-                <version>${spring.cloud.nacos.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.alibaba.nacos</groupId>
-                <artifactId>nacos-client</artifactId>
-                <version>${nacos.version}</version>
-            </dependency>
-            <!--集成Dubbo实现服务的远程调用-->
-            <!--<dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-starter-dubbo</artifactId>
-                <version>${spring.cloud.dubbo.version}</version>
-            </dependency>-->
             <dependency>
                 <groupId>org.apache.dubbo</groupId>
                 <artifactId>dubbo-spring-boot-starter</artifactId>
-                <version>${spring.cloud.dubbo.version}</version>
+                <version>${dubbo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.nacos</groupId>
+                <artifactId>nacos-client</artifactId>
+                <version>${nacos-client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${dubbo.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
             </dependency>
-            <!--数据库-->
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql-connector-java.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-boot-starter</artifactId>
-                <version>${mybatis.plus.version}</version>
-            </dependency>
         </dependencies>
     </dependencyManagement>
+
 
 </project>
